@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 937c7bde062f0f942b600d9950d2ebb2
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 68570
+  packageName: Amplify Shader Editor
+  packageVersion: 1.9.9.14
+  assetPath: Assets/AmplifyShaderEditor/Plugins/EditorResources/Previews/Preview_FogAndAmbientColors.shader
+  uploadId: 1019702

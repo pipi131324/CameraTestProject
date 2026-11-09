@@ -1,0 +1,44 @@
+using System;
+using UnityEngine;
+
+namespace AmplifyShaderEditor
+{
+    [Serializable]
+    [NodeAttributes( "Relay", "Miscellaneous", "Relay" )]
+    public sealed class RelayNode : ParentNode
+    {
+        protected override void CommonInit( int uniqueId )
+        {
+            base.CommonInit( uniqueId );
+            AddInputPort( WirePortDataType.OBJECT, false, Constants.EmptyPortValue );
+			m_inputPorts[ 0 ].SetFreeForAll();
+            AddOutputPort( WirePortDataType.OBJECT, Constants.EmptyPortValue );
+			m_previewShaderGUID = "74e4d859fbdb2c0468de3612145f4929";
+		}
+
+	    public override void OnInputPortConnected( int portId, int otherNodeId, int otherPortId, bool activateNode = true )
+        {
+            base.OnInputPortConnected( portId, otherNodeId, otherPortId, activateNode );
+            m_inputPorts[ 0 ].MatchPortToConnection();
+            m_outputPorts[ 0 ].ChangeType( m_inputPorts[ 0 ].DataType, m_inputPorts[ 0 ].StructName, false );
+        }
+
+        public override void OnConnectedOutputNodeChanges( int outputPortId, int otherNodeId, int otherPortId, string name, WirePortDataType type )
+        {
+            base.OnConnectedOutputNodeChanges( outputPortId, otherNodeId, otherPortId, name, type );
+            m_inputPorts[ 0 ].MatchPortToConnection();
+            m_outputPorts[ 0 ].ChangeType( m_inputPorts[ 0 ].DataType, m_inputPorts[ 0 ].StructName, false );
+        }
+
+		public override StructFieldMask FieldDemandForInput( int inputIndex, StructFieldMask received )
+		{
+			return ( inputIndex == 0 ) ? received : StructFieldMask.All;
+		}
+
+        public override string GenerateShaderForOutput( int outputId, ref MasterNodeDataCollector dataCollector, bool ignoreLocalvar )
+        {
+            base.GenerateShaderForOutput( outputId, ref dataCollector, ignoreLocalvar );
+            return m_inputPorts[ 0 ].GenerateShaderForOutput( ref dataCollector, m_inputPorts[ 0 ].DataType, ignoreLocalvar );
+        }
+    }
+}

@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:Export3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MI_Manny_02
+  m_Shader: {fileID: 4800000, guid: dac1a000000005863026675051495056, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Material_Texture2D_0:
+        m_Texture: {fileID: 2800000, guid: dac1a000000001792314834866738501, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Material_Texture2D_1:
+        m_Texture: {fileID: 2800000, guid: dac1a000000012042699248382813046, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Material_Texture2D_2:
+        m_Texture: {fileID: 2800000, guid: dac1a000000015335941774822545314, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Material_Texture2D_3:
+        m_Texture: {fileID: 2800000, guid: dac1a000000017940885650515992315, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Material_Texture2D_4:
+        m_Texture: {fileID: 2800000, guid: dac1a000000006391352809195269463, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Material_Texture2D_5:
+        m_Texture: {fileID: 2800000, guid: dac1a000000006956496646709389077, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Material_Texture2D_6:
+        m_Texture: {fileID: 2800000, guid: dac1a000000017618413416433823263, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Material_Texture2D_7:
+        m_Texture: {fileID: 2800000, guid: dac1a000000005792730966397483420, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Material_Texture2D_8:
+        m_Texture: {fileID: 2800000, guid: dac1a000000000604750826524241335, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _DstBlend: 0
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

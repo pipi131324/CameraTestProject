@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1fb3121b1c8febb4dbcc2a507a2df2db
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 68570
+  packageName: Amplify Shader Editor
+  packageVersion: 1.9.9.14
+  assetPath: Assets/AmplifyShaderEditor/Plugins/EditorResources/Previews/Preview_DecodeFloatRGHlpNode.shader
+  uploadId: 1019702

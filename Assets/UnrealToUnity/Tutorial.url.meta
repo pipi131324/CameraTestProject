@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 77929ff535bb763498279ca55a22f0d3
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342498
+  packageName: Exporter for Unreal to/for Unity 2026
+  packageVersion: 1.58
+  assetPath: Assets/UnrealToUnity/Tutorial.url
+  uploadId: 983102

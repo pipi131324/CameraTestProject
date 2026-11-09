@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5155b33410d846a41bcd734baea4b8d4
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342498
+  packageName: Exporter for Unreal to/for Unity 2026
+  packageVersion: 1.58
+  assetPath: Assets/UnrealToUnity/UnrealToUnity_With_Binaries.zip
+  uploadId: 983102

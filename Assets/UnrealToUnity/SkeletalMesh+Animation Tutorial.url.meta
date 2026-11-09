@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0873cf6e80caa25418719724e6503ad6
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342498
+  packageName: Exporter for Unreal to/for Unity 2026
+  packageVersion: 1.58
+  assetPath: Assets/UnrealToUnity/SkeletalMesh+Animation Tutorial.url
+  uploadId: 983102

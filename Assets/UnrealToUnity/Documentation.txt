@@ -1,0 +1,76 @@
+
+Documentation :
+
+First watch the video tutorial here : https://www.youtube.com/watch?v=thGvNU1WH58
+
+
+How to use :
+1) Create a new C++ based project ( not a blueprint based one) and copy this folder into /YourProject/Plugins/ so that this is a valid path :
+ /YourProject/Plugins/UnrealToUnity/UnrealToUnity.uplugin
+
+2) Add to this project all the assets you want to export, for example add the starter content to your project and open Minimal_Default
+3) Open a scene with assets or use the menu option PlaceAllAssetsInScene to populate an empty scene with assets. Only the assets in the currently opened scene are exported.
+4) Click on the new UnityToUnreal button to get a submenu with
+- Export... This will open a properties sheet with options:
+RenderPipeline - exports shaders for Builtin/URP/HDRP
+UseStandardShaders - Sets up all materials to use the Standard shader( or URP/Lit or HDRP/Lit ). If 2 textures exist for an output like BaseColor, only the first texture will be used.
+ShowFBXExportDialog - Shows the FBX Export dialog where you have the option to not export LODs, VertexColors, collision. By default everything is exported.
+ExportVertexShader - Exports the WorldPositionOffset part of the UE material. This is a new option and may result in shader errors if there's material nodes
+                     I haven't fixed yet. In case your export has shader errors, you can try exporting with this option turned off.
+ExportBrushes      - This options exports brush actors. In UE5 due to unknown reasons this option can crash an export. If you experience crashes, try exporting with
+					this option turned off.
+Skinned Meshes - Export as Skinned Mesh
+                 Export as Static Mesh - if you don't need skinned meshes or their animations you can choose to convert them to static meshes for performance reasons. You can also
+							choose this if "Export as Skinned Mesh" has errors
+Nanite Options - Export Original Mesh - Nanite meshes usually have millions of triangles, this option exports the mesh with all the original triangles.
+		   - Export Coarse Mesh   - Nanite also builds a coarse mesh for uses like raytracing, this is usually a much simplified mesh but the export will be much faster
+TangetToWorldLocation - Keep Unity Vectors - this option keeps the Tangent vectors intact and in Unity space with Y up
+			    - Flip YZ Before Normals - flips YZ vectors of the TBN matrix so it matches Unreal space with Z up. The operation is done before normal calculation is made
+			    - Flip YZ After Normals - flips YZ vectors of the TBN matrix so it matches Unreal space with Z up. The operation is done after normal calculation is made
+				Every option was designed to fix particular issues with specific materials that need the TBN Matrix in a particular space, either for texturing Basecolor/Roughness/Metallic/etc or
+				computing a vector for normal calculations.
+Export All Animations - When encountering a skeletal mesh, it will also export all animations compatible for that skeletal mesh.
+Foliage Export - this option controls what happens with Foliage instances
+	Create GameObject Per Instance - for each foliage instance you will have an individual GameObject with a MeshRenderer,LODs,etc
+	Tree Instances - this creates a custom unity component where it stores foliage instance data. It also speeds up the export process and the performance of the unity project. After export, open the exported scene in unity; create a terrain by going to GameObject->3D Object->Terrain. Place it around the area were your foliage instances where and then use the unity menu UTU->MoveTreeDataToTerrainComponent. This will add TreePrototypes and TreeInstances to the terrain component.
+Export sounds - looks through all USoundWave assets in the project and exports them in OGG format.
+
+- PlaceAllAssetsInScene - If you have multiple maps or you just want all assets exported from a huge project that doesn't contain a scene, use this
+to automatically spawn all static meshes into an empty map.
+- ConvertLandscapesToStaticMeshes - Convert terrains into static meshes, use this prior to export. Take note it can modify materials used on other assets.
+- BakeTextures - this option will bake textures based on the objects' UV and thus will create new textures for every mesh/material combination. It's designed to be used in combination with exporting with Standard Shaders in order to fill out the predefined unity map slots. Textures are exported at 2048x2048 resolution using UV0. For HDRP export, first open the export dialog, select HDRP, click cancel and then bake to get the HDRP combined mask texture, then export as usual.
+
+
+
+The exporter exports an entire project to C:\UnrealToUnity\ for use with Unity 2019 and up.
+
+4) Open the newly created project with Unity
+5) In the root assets folder Asset\ there is either a FBX file or a Scene.unity file. For the FBX drag this into a new scene and delete default unity scene objects : MainCamera and DirectionalLight ( this
+interfeers with unreal's default camera and lights )
+
+Optional :
+-if you want to reexport the same scene and want to make sure there's no errors you should delete the currently exported UnrealToUnity folder.
+
+ConsoleOptions
+utu.UsePrefabs - Generate and use prefab instances where appliable. If you have issues like gameobjects with missing meshes or missing materials in the scene
+			you can try exporting with this option set to 0
+
+Known Issues :
+-It may crash during export if you don't have enough RAM, check your memory at the point of the crash dialog to figure this out. In situations like these just try to export again
+because the memory increase is due to texture export which doesn't happen on subsequent tries if the texture is already exported.
+-sometimes you may get an error on export depending on where the project is. Some users have had problems with projects located in their user documents folder or C:\Program Files
+Try to place your project in a neutral folder like C:\NewUnrealProject
+-On certain PCs the .NET Framework SDK 4.6.0 is not installed. This is a requirement apparently.
+-ERROR: Windows SDK must be installed in order to build this target. - this is a requirement for UE4 C++ based projects. You must install all UE4 prerequisites and first make sure you can compile
+ C++ based projects like the Kite Demo for example.
+- Double check that this file resides exactly here /YourProject/Plugins/UnrealToUnity/UnrealToUnity.uplugin
+- Do not name your test Project UnrealToUnity as Unreal can't load 2 modules with the same name (your game + plugin).
+- if your system language is anything other than english you may get errors such as "error C2039: 'Names': 'FMaterialPreshaderData'?? ?????? ?ƴմϴ?." Try
+changing your system language to english and try again. Also, do not use non-ASCII characters for the project name or assets.
+- if you receive an error of the type "SourceFile [Name] not found. Check your plugin installation !" it means you're missing files from the plugin zip file OR
+	there is something wrong with the project path, like it has chinese/korean/arabic characters. Project name must have ANSI characters.
+
+Support
+
+-if you have an error while trying to compile the plugin, there's a file at ProjectName/Saved/Logs/ProjectName.log . Send me this file at relativegames7@gmail.com
+-if in unity you have white objects which stem from shader compilation errors send me screenshots with those errors at relativegames7@gmail.com

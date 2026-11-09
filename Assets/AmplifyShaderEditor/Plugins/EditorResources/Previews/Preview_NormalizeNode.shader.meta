@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: a51b11dfb6b32884e930595e5f9defa8
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 68570
+  packageName: Amplify Shader Editor
+  packageVersion: 1.9.9.14
+  assetPath: Assets/AmplifyShaderEditor/Plugins/EditorResources/Previews/Preview_NormalizeNode.shader
+  uploadId: 1019702
